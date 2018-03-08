@@ -1,0 +1,47 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+string x;
+int main()
+{
+     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+   int n;
+   cin>>n;
+
+   while(n--)
+   {
+
+       int x,k,c=0;
+       cin>>x>>k;
+       int a[k];
+       for(int i=0;i<k;i++)
+       {
+           cin>>a[i];
+       }
+
+
+       for(int i=0;i<(pow(2,k));i++)
+       {
+           for(int j=0;j<k;j++)
+           {
+               if(i&(1<<j))
+                c+=a[j];
+           }
+           if(c==x)
+           {
+               cout<<"YES"<<endl;
+               break;
+           }
+           else
+           {
+               c=0;
+           }
+       }
+       if(c!=x)
+        cout<<"NO"<<endl;
+
+   }
+    return 0;
+}
