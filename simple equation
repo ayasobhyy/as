@@ -1,0 +1,54 @@
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int main()
+{
+     ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+
+int n,a,b,c;
+ cin>>n;
+
+    while( n-- ){
+       cin>>a>>b>>c;
+
+        bool k = false;
+        int x, y, z;
+
+
+        for( x = -333; x <= 333; ++x ){
+            for( y = -333; y <= 333; ++y ){
+
+                if( x != y && ( (x * x + y * y) + (a - x - y) * (a - x - y) == c )  ){
+
+                    int h = x * y;
+               if(h==0)
+                continue;
+                    z=b/h;
+
+                    if( z != x && z != y && x + y + z == a   ){
+                        if(!k){
+                            int a[3] = {x, y, z};
+                            sort(a, a+ 3);
+                            cout << a[0] << " " << a[1] << " " << a[2] <<endl;
+
+                            k = true;
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        if(!k)
+            cout << "No solution." << endl;
+
+
+    }
+
+
+    return 0;
+}
