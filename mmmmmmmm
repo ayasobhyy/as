@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+      ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    int n,m;
+    double k;
+    cin>>n>>m>>k;
+    pair<string,int>a[n];
+    string z[m];
+    vector<pair<string,double> >v;
+
+
+    for(int i=0;i<n;i++)
+    {
+        string g;int x;
+        cin>>g>>x;
+        a[i]=make_pair(g,x);
+    }
+
+
+    for(int i=0;i<m;i++)
+    {
+      cin>>z[i];
+      int m=0;
+      for(int j=0;j<n;j++)
+      {
+
+          if(z[i]==a[j].first)
+          {
+              int h=k*a[j].second ;
+              if(h>=100)
+               {
+                 v.push_back(make_pair(a[j].first,h));
+                         m=1;
+                         a[j].second=0;
+                         break;
+               }
+               else
+                {
+                    v.push_back(make_pair(a[j].first,0));
+                    m=1;
+                    a[j].second=0;
+                    break;
+               }
+          }
+      }
+         if(m==0)
+            {
+                v.push_back(make_pair(z[i],0));
+
+            }
+
+        }
+
+
+    for(int i=0;i<n;i++)
+    {
+        if(a[i].second!=0)
+        {
+            int h=a[i].second*k;
+            if(h>=100)
+                v.push_back(make_pair(a[i].first,h));
+        }
+
+    }
+
+   sort(v.begin(),v.end());
+   
+   cout<<v.size()<<endl;
+
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i].first<<" "<<v[i].second<<endl;
+    }
+
+      return 0;
+}
