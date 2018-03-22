@@ -1,0 +1,39 @@
+
+#include <bits/stdc++.h>
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main()
+{
+      ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+
+    int n;
+    cin>>n;
+    int x=pow(n,2);
+    bool a[x]={0},b[x]={0};
+
+    int z,y,c=1;
+        cin>>z>>y;
+        a[z]=1;
+        b[y]=1;
+        cout<<c<<" ";
+
+    for(int i=1;i<x;i++)
+    {
+
+        cin>>z>>y;
+        c++;
+        if(a[z]==0&&b[y]==0)
+           {
+             cout<<c<<" ";
+             a[z]=1;
+             b[y]=1;
+           }
+        else
+            continue;
+
+
+    }
+
+      return 0;
+}
