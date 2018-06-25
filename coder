@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+    int n,o;
+    cin >> n;
+    o=(n*n+1)/2;
+    cout <<o<< endl;
+bool k=true, m=false;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            if(k && !m){
+                cout << "C";
+                k= false;
+                m= true;
+            }
+            else if(m&& !k){
+                cout << ".";
+                m= false;
+                k= true;
+            }
+        }
+        cout << endl;
+        if(k && n%2 == 0)
+            {
+            k = false;
+            m = true;
+             }
+        else if(m && n%2 == 0)
+            {m= false;
+             k= true;
+            }
+    }
+
+    return 0;
+
+}
