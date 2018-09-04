@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+int t,n,m,q,x[200+9][200+9],a,b,c,d;
+vector<int>vec;
+
+int main ()
+{
+    freopen("important.in","r",stdin);
+    cin>>t;
+    for(int ind=1;ind<=t;ind++){
+        cin>>n>>m>>q;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                cin>>x[i][j];
+            }
+        }
+        cout<<"Case "<<ind<<":"<<endl;
+        for(int i=0;i<q;i++){
+                vec.clear();
+            cin>>a>>b>>c>>d;
+            for(int k=a;k<=c;k++){
+                for(int j=b;j<=d;j++){
+                    vec.push_back( x[k-1][j-1] );
+                }
+            }
+            sort(vec.begin(),vec.end());
+            cout<<vec[(vec.size())/2]<<endl;
+        }
+    }
+
+
+return 0;
+}
