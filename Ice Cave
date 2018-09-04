@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int x[]={1,-1,0,0};
+int y[]={0,0,1,-1};
+char a[500+9][500+9];
+int desi,desj,n,sti,stj,nn;
+bool ok=false;
+bool val(int i,int j){
+    return i>=0&&i<n&&j>=0&&j<nn;
+}
+
+void dfs(int i,int j){
+    a[i][j]='X';
+    for(int c=0;c<4;c++){
+        if(  i+x[c]==desi && j+y[c]==desj && a[ i+x[c] ][ j+y[c] ] =='X' )
+        {
+            ok=true;
+        }
+        if(  val( i+x[c] , j+y[c] )  && a[ i+x[c] ][ j+y[c] ] =='.' )
+            dfs( i+x[c] , j+y[c] );
+
+    }
+}
+
+
+
+int main ()
+{
+    cin>>n>>nn;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<nn;j++){
+            cin>>a[i][j];
+        }
+    }
+    cin>>sti>>stj>>desi>>desj;
+    sti--;
+    stj--;
+    desi--;
+    desj--;
+    dfs(sti,stj);
+  
+    if(ok)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+
+    return 0;
+}
