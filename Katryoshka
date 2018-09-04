@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main ()
+{
+    freopen("katryoshka.in","r",stdin);
+  int n,i,m,b,mn,x;
+  cin>>n;
+for(int k=1;k<=n;k++) {
+  cin>>i>>m>>b;
+   mn=min(i,min(m,b));
+    x=mn+min( (max(0,i-mn) /2 )  ,b-mn);
+    cout<<"Case"<<" "<<k<<":"<<" "<<x<<endl;
+  }
+
+return 0;
+}
