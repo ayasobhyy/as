@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include <math.h>
+#include <string.h>
+
+char* revfun(char* str);
+
+int main()
+{
+    int i;
+    char str[100];
+    char *rev;
+    scanf("%s", str);
+    rev = revfun(str);
+    printf("%s\n", rev);
+return 0;
+}
+
+char* revfun(char *str)
+{
+    static int i = 0;
+    static char rev[100];
+    if(*str)
+    {
+        revfun(str+1);
+        rev[i++] = *str;
+    }
+    return rev;
+}
